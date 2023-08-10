@@ -37,8 +37,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'learning_log'
+    'learning_log',
+    'users',
+    'bootstrap4',
 ]
+
+LOGIN_URL =['users:login',
+            ]
+
+
+# Specify the custom URL to redirect to after logout
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -122,3 +131,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#Heroku Settings
+import django_heroku
+django_heroku.settings(locals())
